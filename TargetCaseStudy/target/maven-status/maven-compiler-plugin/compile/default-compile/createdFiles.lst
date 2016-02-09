@@ -1,0 +1,11 @@
+org/target/casestudy/service/IProductDAO.class
+org/target/casestudy/service/ProductService.class
+org/target/casestudy/util/BeanValidation.class
+org/target/casestudy/test/ReadWriteTest.class
+org/target/casestudy/resources/MyRetailStoreResource.class
+org/target/casestudy/constant/ApplicationConstant.class
+org/target/casestudy/model/Product.class
+org/target/casestudy/exception/DataAccessException.class
+org/target/casestudy/test/TestWebServices.class
+org/target/casestudy/connectionfactory/ConnectionFactory.class
+org/target/casestudy/util/SuccessMessage.class

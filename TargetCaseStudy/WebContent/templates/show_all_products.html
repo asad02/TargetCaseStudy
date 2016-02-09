@@ -1,0 +1,23 @@
+<h2>Available product in inventory</h2>
+<table class="table table-striped">
+	<thead>
+		<tr>
+			<th>Product #</th>
+			<th>Product Name</th>
+			<th>SKU</th>
+			<th>Product Category</th>
+			<th>Product Price</th>
+			<th>Last Updated</th>
+		</tr>
+	</thead>
+	<tbody>
+		<tr data-ng-repeat="product in productList">
+			<td><a href="#ShowProductDetails/{{product.productId}}">{{product.productId}}</a></td>
+			<td><a href="#ShowProductDetails/{{product.productId}}">{{product.productName}}</a></td>
+			<td>{{product.sku}}</td>
+			<td>{{product.productCategory}}</td>
+			<td>{{product.price}}</td>
+			<td>{{product.lastUpdatedDate | date}}</td>
+		</tr>
+	</tbody>
+</table>

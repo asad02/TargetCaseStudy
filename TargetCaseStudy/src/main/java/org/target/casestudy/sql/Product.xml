@@ -1,0 +1,79 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE sqlMap  PUBLIC "-//ibatis.apache.org//DTD SQL Map 2.0//EN" "http://ibatis.apache.org/dtd/sql-map-2.dtd"> 
+<sqlMap namespace="Product"> 
+ 
+    <typeAlias alias="PRODUCT" type="org.target.casestudy.model.Product" />
+ 
+    <resultMap id="userResultMap" class="PRODUCT">
+        <result property="productId" column="ID" />
+        <result property="productName" column="NAME" />
+        <result property="sku" column="SKU" />
+        <result property="productCategory" column="CATEGORY" />
+        <result property="lastUpdatedDate" column="LAST_UPDATED" />
+        <result property="price" column="PRICE" />
+    </resultMap>
+    
+     <!-- End: Mapper.select all product  -->
+    <select id="getProducts" resultMap="userResultMap">
+    	SELECT p.id, p.sku, p.name, p.category, p.last_updated, price.price
+        FROM product p, PRODUCTPRICE price
+        WHERE p.id = price.id
+    </select>
+    <!-- End: Mapper.select all product  -->
+    
+    <!-- Start: Mapper.select product by product id  -->
+    <select id="getProductById" parameterClass="int" resultMap="userResultMap">
+        SELECT p.id, p.sku, p.name, p.category, p.last_updated, price.price
+        FROM product p, PRODUCTPRICE price
+        WHERE p.id = price.id
+        AND p.id = #value#
+    </select>
+    <!-- End: Mapper.select product by product id  -->
+    
+    <!-- Start: Mapper.insert into product  -->
+    <insert id="insertIntoProduct" parameterClass="org.target.casestudy.model.Product">
+        INSERT INTO PRODUCT
+            (ID, SKU, NAME, CATEGORY, LAST_UPDATED)
+        VALUES ( #productId#, #sku#, #productName#, #productCategory#, #lastUpdatedDate#)
+    </insert>
+     <!-- End: Mapper.insert into product  -->
+     
+     <!-- Start: Mapper.insert into product Price  -->
+    <insert id="insertIntoProductPrice" parameterClass="org.target.casestudy.model.Product">
+        INSERT INTO PRODUCTPRICE
+            (ID, PRICE)
+        VALUES ( #productId#, #price#)
+    </insert>
+    <!-- End: Mapper.insert into product Price  -->
+    
+    <!-- Start: Mapper.select product by category id  -->
+    <select id="getProductByCategory" parameterClass="java.lang.String" resultMap="userResultMap">
+        SELECT p.id, p.sku, p.name, p.category, p.last_updated, price.price
+        FROM product p, PRODUCTPRICE price
+        WHERE p.id = price.id
+        AND p.category = #value#
+    </select>
+    <!-- End: Mapper.select product by category  -->
+    
+    <!-- Start: Mapper.update product by category -->
+    <update id="updateProduct" parameterClass="org.target.casestudy.model.Product">
+        UPDATE PRODUCT
+        SET
+        	SKU = #sku#,
+        	NAME = #productName#,
+        	CATEGORY = #productCategory#,
+        	LAST_UPDATED = #lastUpdatedDate#
+		WHERE ID = #productId#
+    </update>
+    <!-- End: Mapper.update product by category  -->
+    
+    <!-- Start: Mapper.update product by category -->
+    <update id="updateProductPrice" parameterClass="org.target.casestudy.model.Product">
+        UPDATE PRODUCTPRICE
+        SET
+        	PRICE = #price#
+		WHERE ID = #productId# 
+    </update>
+    <!-- End: Mapper.update product by category  -->
+    
+</sqlMap>
