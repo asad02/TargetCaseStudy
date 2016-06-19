@@ -25,19 +25,67 @@ public class Product {
 	public String productCategory;
 	public Date lastUpdatedDate;
 	public double price;
-	
+	public String currency;	
+	public String productSource;
+	public String active;
+	public String priceActive;
+
 	public Product() {
 	}
 	
-	public Product(int prodId, String prodName, String prodCat, Date ProdLastUpd, double price, String sku) {
+	public Product(int prodId, String prodName, String prodCat, Date ProdLastUpd, double price, String sku, String currency, String productSource) {
 		this.productId = prodId;
 		this.productName = prodName;
 		this.productCategory = prodCat;
 		this.lastUpdatedDate = ProdLastUpd;
 		this.price = price;
 		this.sku = sku;
+		this.currency = currency;
+		this.productSource = productSource;
 	}
 	
+	/**
+	 * @return the priceActive
+	 */
+	public String getPriceActive() {
+		return priceActive;
+	}
+
+	/**
+	 * @param priceActive the priceActive to set
+	 */
+	public void setPriceActive(String priceActive) {
+		this.priceActive = priceActive;
+	}
+
+	/**
+	 * @return the active
+	 */
+	public String getActive() {
+		return active;
+	}
+
+	/**
+	 * @param active the active to set
+	 */
+	public void setActive(String active) {
+		this.active = active;
+	}
+	
+	/**
+	 * @return the productSource
+	 */
+	public String getProductSource() {
+		return productSource;
+	}
+
+	/**
+	 * @param productSource the productSource to set
+	 */
+	public void setProductSource(String productSource) {
+		this.productSource = productSource;
+	}
+
 	/**
 	 * @return the productId
 	 */
@@ -109,5 +157,19 @@ public class Product {
 	 */
 	public void setPrice(double price) {
 		this.price = price;
+	}
+
+	/**
+	 * @return the currency
+	 */
+	public String getCurrency() {
+		return currency;
+	}
+
+	/**
+	 * @param currency the currency to set
+	 */
+	public void setCurrency(String currency) {
+		this.currency = currency;
 	}
 }

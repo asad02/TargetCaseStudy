@@ -1,4 +1,4 @@
-<h2>Show Product Category</h2>
-<div data-ng-repeat="product in productList | unique:'productCategory'">
-	<div><a href="#ShowProductByCategory/{{product.productCategory}}">{{product.productCategory}}</a></div>
-</div>
+<h2>Category</h2>
+<span data-ng-repeat="product in productList | unique:'productCategory'">
+	<a href="#ShowProductByCategory/{{product.productCategory}}">{{product.productCategory}}</a>&nbsp;&nbsp;| 
+</span>

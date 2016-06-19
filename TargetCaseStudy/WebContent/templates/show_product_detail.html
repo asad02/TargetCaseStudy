@@ -10,25 +10,54 @@
 	<div class="col-md-3">
 		<strong>Product Name: </strong>
 	</div>
-	<div class="col-md-3">{{product.productName}}</div>
+	<div class="col-md-3">
+		<input type="text" readonly ng-model="product.productName"
+			ng-value="name" id="{{name}}" name="product">
+	</div>
 </div>
 <div class="row">
 	<div class="col-md-3">
 		<strong>SKU: </strong>
 	</div>
-	<div class="col-md-3">{{product.sku}}</div>
+	<div class="col-md-3">
+		<input type="text" ng-model="product.sku" ng-value="sku" id="sku"
+			name="product">
+	</div>
 </div>
 <div class="row">
 	<div class="col-md-3">
 		<strong>Product Category: </strong>
 	</div>
-	<div class="col-md-3">{{product.productCategory}}</div>
+	<div class="col-md-3">
+		<input type="text" ng-model="product.productCategory"
+			ng-value="category" id="category" name="product">
+	</div>
+</div>
+<div class="row">
+	<div class="col-md-3">
+		<strong>Currency: </strong>
+	</div>
+	<div class="col-md-3">
+		<input type="text" ng-model="product.currency" ng-value="currency"
+			id="currency" name="product">
+	</div>
 </div>
 <div class="row">
 	<div class="col-md-3">
 		<strong>Product Price: </strong>
 	</div>
-	<div class="col-md-3">{{product.price}}</div>
+	<div class="col-md-3">
+		<input type="text"
+			ng-model="product.price" ng-value="price"
+			id="cprice
+              name="product">
+	</div>
+</div>
+<div class="row">
+	<div class="col-md-3">
+		<strong>Product Source: </strong>
+	</div>
+	<div class="col-md-3">{{product.productSource}}</div>
 </div>
 <div class="row">
 	<div class="col-md-3">
@@ -36,3 +65,18 @@
 	</div>
 	<div class="col-md-3">{{product.lastUpdatedDate | date}}</div>
 </div>
+<div class="row" ng-hide="success">
+	<div class="col-md-3"></div>
+	<div class="col-md-6">
+		<font color="red">Product updated successfully on
+			{{product.lastUpdatedDate | date}}</font>
+	</div>
+</div>
+<div class="row">
+	<div class="col-md-3"></div>
+	<div class="col-md-3">
+		<input value="Save" class="" type="submit"
+			data-ng-click="submitFormData()">
+	</div>
+</div>
+
