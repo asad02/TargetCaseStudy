@@ -20,5 +20,6 @@ public interface IProductDAO {
 	public List<Product> getProductByCategory(String Category); //get a list of product by category
 	
 	public boolean insertIntoProduct(Product product); // insert a product into product and productprice table
+	
 	public boolean updateProductDetails(Product product); // update a product based on the provided product id.
 }

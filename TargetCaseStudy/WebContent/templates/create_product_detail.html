@@ -1,0 +1,96 @@
+<h2>Enter product information</h2>
+<form name="form" novalidate>
+	<div class="row">
+		<div class="col-md-3">
+			<strong>Product Id: </strong>
+		</div>
+		<div class="col-md-3">
+			<input id="productId" placeholder="Product ID"
+				data-ng-model="product.productId" ng-maxlength="10" maxlength="10"
+				name="productId" ng-pattern="/^[0-9]+$/" required>
+			<p
+				ng-show="(submitted && !form.productId.$dirty) || (!form.productId.$pristine && form.productId.$invalid) || (form.productId.$error.pattern)">
+				<font color='red'>Valid Product Id is required.</font>
+			</p>
+		</div>
+
+	</div>
+	<div class="row">
+		<div class="col-md-3">
+			<strong>Product Name: </strong>
+		</div>
+		<div class="col-md-3">
+			<input id="productName" placeholder="Product Name"
+				data-ng-model="product.productName" ng-maxlength="30" maxlength="30"
+				name="productName" ng-pattern="/^[\A-Za-z0-9\s\u00C0-\u024f,._'-]+$/" required>
+			<p
+				ng-show="(submitted && !form.productName.$dirty) || (!form.productName.$pristine && form.productName.$invalid) || (form.productName.$error.pattern)">
+				<font color='red'>Valid Product Name is required.</font>
+			</p>
+		</div>
+	</div>
+	<div class="row">
+		<div class="col-md-3">
+			<strong>SKU: </strong>
+		</div>
+		<div class="col-md-3">
+			<input id="sku" placeholder="Product SKU" data-ng-model="product.sku"
+				ng-maxlength="10" maxlength="10" name="sku" ng-pattern="/^[\A-Za-z0-9\s\u00C0-\u024f,._'-]+$/"
+				required>
+			<p
+				ng-show="(submitted && !form.sku.$dirty) || (!form.sku.$pristine && form.sku.$invalid) || (form.sku.$error.pattern)">
+				<font color='red'>Valid Product SKU is required.</font>
+			</p>
+		</div>
+	</div>
+	<div class="row">
+		<div class="col-md-3">
+			<strong>Product Category: </strong>
+		</div>
+		<div class="col-md-3">
+			<input id="productCategory" placeholder="Product Category"
+				data-ng-model="product.productCategory" ng-maxlength="30"
+				maxlength="30" name="productCategory" ng-pattern="/^[\A-Za-z0-9\s\u00C0-\u024f,._'-]+$/" required>
+			<p
+				ng-show="(submitted && !form.productCategory.$dirty) || (!form.productCategory.$pristine && form.productCategory.$invalid) || (form.productCategory.$error.pattern)">
+				<font color='red'>Valid Product Category is required.</font>
+			</p>
+		</div>
+	</div>
+	<div class="row">
+		<div class="col-md-3">
+			<strong>Currency: </strong>
+		</div>
+		<div class="col-md-3">
+			<input id="productCurrency" placeholder="Currency"
+				data-ng-model="product.currency" ng-maxlength="30" maxlength="30"
+				name="productCurrency" ng-pattern="/^[\A-Za-z0-9\s\u00C0-\u024f,._'-]+$/" required>
+			<p
+				ng-show="(submitted && !form.productCurrency.$dirty) || (!form.productCurrency.$pristine && form.productCurrency.$invalid) || (form.productCurrency.$error.pattern)">
+				<font color='red'>Valid Currency is required.</font>
+			</p>
+		</div>
+	</div>
+	<div class="row">
+		<div class="col-md-3">
+			<strong>Product Price: </strong>
+		</div>
+		<div class="col-md-3">
+			<input id="productPrice" placeholder="Price"
+				data-ng-model="product.price" ng-maxlength="30" maxlength="30"
+				name="productPrice" required>
+			<p
+				ng-show="(submitted && !form.productPrice.$dirty) || (!form.productPrice.$pristine && form.productPrice.$invalid)">
+				<font color='red'>Valid Price is required.</font>
+			</p>
+		</div>
+	</div>
+	<div class="row">
+		<div class="col-md-3"></div>
+		<div class="col-md-3">
+			<input value="Create" class="" type="submit"
+				data-ng-click="submitProductData(form.$valid)">
+		</div>
+	</div>
+</form>
+

@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Host: localhost
--- Generation Time: Feb 09, 2016 at 12:08 AM
+-- Generation Time: Jun 19, 2016 at 06:52 PM
 -- Server version: 5.6.26
 -- PHP Version: 5.6.12
 
@@ -31,21 +31,27 @@ CREATE TABLE IF NOT EXISTS `Product` (
   `SKU` varchar(20) NOT NULL,
   `NAME` varchar(50) NOT NULL,
   `CATEGORY` varchar(20) NOT NULL,
-  `LAST_UPDATED` date NOT NULL
+  `LAST_UPDATED` date NOT NULL,
+  `ACTIVE` varchar(1) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
 -- Dumping data for table `Product`
 --
 
-INSERT INTO `Product` (`ID`, `SKU`, `NAME`, `CATEGORY`, `LAST_UPDATED`) VALUES
-(5555, 'AEX143', 'Stroller', 'baby', '2016-02-01'),
-(5556, 'IoL123', 'Optimus Prime', 'toys', '2015-05-01'),
-(5557, 'XYZ904', 'Sega Genesis', 'toys', '2014-03-01'),
-(5558, 'ASD123', 'Baby Shampoo', 'Baby', '2016-02-06'),
-(5559, 'ASD123', 'Baby Shampoo', 'Baby', '2016-02-06'),
-(5560, 'ASD123', 'Baby Shampoo', 'Baby', '2016-02-06'),
-(5561, 'ASD123', 'Baby Shampoo', 'Baby', '2016-02-06');
+INSERT INTO `Product` (`ID`, `SKU`, `NAME`, `CATEGORY`, `LAST_UPDATED`, `ACTIVE`) VALUES
+(1232, 'test', '123', '123', '2016-06-18', 'X'),
+(5556, 'IoL123', 'Optimus Prime', 'toys', '2016-06-18', 'X'),
+(5557, 'XYZ904', 'Sega Genesis', 'toys', '2016-06-18', 'X'),
+(5558, 'ASD123', 'Baby Shampoo', 'Baby1', '2016-06-18', 'X'),
+(5559, 'ASD123', 'Baby Shampoo', 'Baby', '2016-06-18', 'X'),
+(5560, 'ASD123', 'Baby Shampoo', 'Baby', '2016-06-18', 'X'),
+(5561, 'dsf', 'rwr', 'dsf', '2016-06-18', 'X'),
+(5562, 'KJH332', 'New product', 'adult', '2016-06-18', 'X'),
+(5563, 'HKJ232', 'New shirt', 'men', '2016-06-18', 'X'),
+(5567, 'KJH332', 'New product', 'adult', '2016-06-19', 'X'),
+(12334, 'SKU123', 'test product12', 'baby 23', '2016-06-18', 'X'),
+(13860428, 'AEX143', 'Stroller', 'baby', '2016-06-18', 'X');
 
 -- --------------------------------------------------------
 
@@ -55,21 +61,28 @@ INSERT INTO `Product` (`ID`, `SKU`, `NAME`, `CATEGORY`, `LAST_UPDATED`) VALUES
 
 CREATE TABLE IF NOT EXISTS `productprice` (
   `ID` int(10) NOT NULL,
-  `PRICE` decimal(10,2) NOT NULL
+  `PRICE` decimal(10,2) NOT NULL,
+  `CURRENCY` varchar(10) NOT NULL,
+  `PRICEACTIVE` varchar(1) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
 -- Dumping data for table `productprice`
 --
 
-INSERT INTO `productprice` (`ID`, `PRICE`) VALUES
-(5555, '120.99'),
-(5556, '20.99'),
-(5557, '10.99'),
-(5558, '12.20'),
-(5559, '12.20'),
-(5560, '12.20'),
-(5561, '12.20');
+INSERT INTO `productprice` (`ID`, `PRICE`, `CURRENCY`, `PRICEACTIVE`) VALUES
+(1232, '23.23', '123', 'X'),
+(5556, '20.90', 'CAD', 'X'),
+(5557, '10.99', 'CAD', 'X'),
+(5558, '12.20', 'USD', 'X'),
+(5559, '12.20', 'USD', 'X'),
+(5560, '12.23', 'USD', 'X'),
+(5561, '23.23', 'CD', 'X'),
+(5562, '34.98', 'CAD', 'X'),
+(5563, '23.56', 'CAD', 'X'),
+(5567, '34.98', 'CAD', 'X'),
+(12334, '12.33', 'CAD', 'X'),
+(13860428, '120.99', 'USD', 'X');
 
 --
 -- Indexes for dumped tables
@@ -79,6 +92,12 @@ INSERT INTO `productprice` (`ID`, `PRICE`) VALUES
 -- Indexes for table `Product`
 --
 ALTER TABLE `Product`
+  ADD PRIMARY KEY (`ID`);
+
+--
+-- Indexes for table `productprice`
+--
+ALTER TABLE `productprice`
   ADD PRIMARY KEY (`ID`);
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;

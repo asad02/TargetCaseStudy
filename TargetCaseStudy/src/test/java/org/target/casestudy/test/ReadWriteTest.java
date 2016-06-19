@@ -37,7 +37,7 @@ public class ReadWriteTest extends TestCase{
 	@Test
 	public void writeIntoProductsTable() throws SQLException {
 		product = new Product(5561, "Baby Shampoo", "Baby", new Date(),
-				12.20, "ASD123");
+				12.20, "ASD123", "", "");
 		boolean inserted = productService.insertIntoProduct(product);
 
 		assertTrue("Failure - Product was not inserted", inserted == true);
